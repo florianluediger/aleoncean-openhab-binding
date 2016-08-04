@@ -112,8 +112,10 @@ To communicate with this remote device, a teach-in is required so the remote dev
 
 To perform a teach-in, you have to reset the receiver (eg. Smart-Plug) to clear all old communication partners. After that, you have to set your receiver into teach-in mode (read the manual of your device for instructions). Notice: Many devices have different teach-in modes, read your manual carefully. After a short time, your USB300/EnOcean-Pi modules(sender) should send a package to the receiver which causes the receiver to authorize the sender to send commands to the receiver.
 
-Technically the following happens:
+The most devices handle the teach-in in the following way:
 When in teach-in mode, the receiver will listen for all incoming telegrams. The Sender-ID of an arriving telegram (in this case sent from your sender module) is interpreted as an authorized information source. After that, every telegram with the authorized Sender-ID will be accepted and commands will be executed.
+
+Other receivers (eg. FS1 Smart-Plug) send a package to the smarthome system and wait for an answer.
 
 For the teach-in reply the local ID of the item is used.
 So you MUST use only one local ID per remote ID for that device type.
